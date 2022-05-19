@@ -6,11 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget</title>
 
-<link rel="stylesheet" href="/normalize.css" />
-<link rel="stylesheet" href="/skeleton.css" />
+<link rel= "stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" />
+<link rel= "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
 </head>
+<div class="container"> 
 <body>
-    <h1>Budget</h1>
+    <% let bankAccount = 0;
+    for(let i = 0; i < wholeBudget.length; i++){
+       bankAccount = bankAccount + parseInt(wholeBudget[i].amount) 
+    }
+     %> 
+    <%  if (bankAccount < 0) { %>
+        <!-- <style>body { background-color: red;} </style> -->
+        <body style = "background-color:red;">
+    <% } else if(bankAccount > 1000) { %>
+        <body style = "background-color: green;">
+   <% }%>
     
+    <h1>Budgtr ALL, <%= bankAccount %></h1>  
+    <table> 
+        <% for (let i = 0; i < wholeBudget.length; i++) { %>
+            <tr> 
+                <td> <%= wholeBudget[i].date %></td>
+                <td> <a href ="/budget/<%= i %>" > <%=wholeBudget[i].name%></a></td>
+                <td><%= wholeBudget[i].amount %></td>
+            
+            
+            </tr>
+        <% } %>
+
+        <form action="/budget/new/">
+        <input type ="submit" value ="creates a new budget item"/>
+        </form>
+   
+
+    </table>
 </body>
+</div>
 </html>

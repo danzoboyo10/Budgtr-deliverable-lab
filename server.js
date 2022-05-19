@@ -5,27 +5,32 @@ const app = express();
 
 const port = 3000;
 
+app.use(express.urlencoded({ extended: false }))
 
 
 //index
-app.get('/budget', (req, res) =>{
-    res.render('index.ejs', {'budget': budget})
+app.get('/budget/', (req, res) =>{
+    res.render('index.ejs', {'wholeBudget': budget})
 })
 
 // New
-app.get("/budget/new", (req, res) => {
+app.get("/budget/new/", (req, res) => {
     res.render('new.ejs')
 })
 
 //Create 
-app.post("/fruits", (req, res) => {
+app.post("/budget/", (req, res) => {
+    console.log(req.body)
+    budget.push(req.body)
+    res.redirect("/budget")
     
+
 })
 
 //show 
-app.get('/budget/:index', (req, res) =>{
+app.get('/budget/:index/', (req, res) =>{
     res.render('show.ejs', {
-        budget: budget[req.params.indexOfBudgetArray]
+        showBudget: budget[req.params.index]
 
     });
 });

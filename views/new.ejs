@@ -6,11 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create new Budget Item </title>
-    <link rel="stylesheet" href="/normalize.css" />
-<link rel="stylesheet" href="/skeleton.css" />
+    <link rel= "stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" />
+    <link rel= "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
 </head>
+<div class = "container">
 <body>
     <h1> New Budget Item Page</h1>
-    
+
+    <form action="/budget/" method="POST">
+        Date: <input type="text" name="date" /><br />
+        Name: <input type="text" name="name" /><br />
+        Amount: <input type="text" name="amount" /><br />
+        From: <input type="text" name="from"/><br />
+        Submit: <input type="submit" value="create budget item"/><br />
+      </form>
+
 </body>
+</div>
 </html>
